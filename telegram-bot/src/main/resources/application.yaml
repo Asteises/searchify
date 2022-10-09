@@ -1,0 +1,44 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      force-response: true
+      charset: UTF-8
+
+spring:
+  main:
+    banner-mode: off
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/searchify
+    hikari:
+      maximum-pool-size: 6
+      minimum-idle: 2
+      connection-timeout: 10000
+  application:
+    name: searchify
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        hbm2ddl:
+          auto: validate
+  mandatory-file-encoding: utf-8
+
+  liquibase:
+    enabled: true
+    change-log: 'classpath:\db\db.changelog-master.yml'
+
+
+
+bot:
+  name: Searchify_News_Bot
+  token: 5531863822:AAFx0J7r_-QtrrPF3tK0JBsht4m01vZ3ynk
